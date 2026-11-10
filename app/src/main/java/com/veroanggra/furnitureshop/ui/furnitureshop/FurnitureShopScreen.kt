@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -32,10 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.veroanggra.furnitureshop.ui.furnitureshop.components.BottomNavigationBar
 import com.veroanggra.furnitureshop.ui.furnitureshop.components.CategorySelector
 import com.veroanggra.furnitureshop.ui.furnitureshop.components.ProductRow
-import com.veroanggra.furnitureshop.ui.theme.Background
 import com.veroanggra.furnitureshop.ui.theme.TextDark
 import com.veroanggra.furnitureshop.ui.theme.TextMuted
 import com.veroanggra.reactify.gooey.GooeyRenderers
@@ -51,7 +48,6 @@ fun FurnitureShopRoute(
     FurnitureShopScreen(
         uiState = uiState,
         onCategorySelected = viewModel::onCategorySelected,
-        onNavItemSelected = viewModel::onNavItemSelected,
         modifier = modifier,
     )
 }
@@ -60,42 +56,30 @@ fun FurnitureShopRoute(
 fun FurnitureShopScreen(
     uiState: FurnitureShopUiState,
     onCategorySelected: (String) -> Unit,
-    onNavItemSelected: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val renderer = remember { GooeyRenderers.auto() }
 
-    Box(modifier.fillMaxSize().background(Background).safeDrawingPadding()) {
-        Column(Modifier.fillMaxSize().padding(horizontal = 20.dp)) {
-            Spacer(Modifier.height(24.dp))
-            ScreenHeader()
-            Spacer(Modifier.height(20.dp))
-            SearchBar()
-            Spacer(Modifier.height(20.dp))
-            CategorySelector(
-                categories = uiState.categories,
-                selectedCategory = uiState.selectedCategory,
-                onCategorySelected = onCategorySelected,
-                renderer = renderer,
-                modifier = Modifier.fillMaxWidth(),
-            )
-            Spacer(Modifier.height(20.dp))
-            SectionHeader()
-            Spacer(Modifier.height(14.dp))
-            ProductRow(
-                products = uiState.products,
-                isLoading = uiState.isLoading,
-                modifier = Modifier.weight(1f),
-            )
-        }
-
-        BottomNavigationBar(
-            selectedIndex = uiState.selectedNavIndex,
-            onItemSelected = onNavItemSelected,
+    Column(modifier.fillMaxSize().padding(horizontal = 20.dp)) {
+        Spacer(Modifier.height(24.dp))
+        ScreenHeader()
+        Spacer(Modifier.height(20.dp))
+        SearchBar()
+        Spacer(Modifier.height(20.dp))
+        CategorySelector(
+            categories = uiState.categories,
+            selectedCategory = uiState.selectedCategory,
+            onCategorySelected = onCategorySelected,
             renderer = renderer,
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 24.dp),
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(Modifier.height(20.dp))
+        SectionHeader()
+        Spacer(Modifier.height(14.dp))
+        ProductRow(
+            products = uiState.products,
+            isLoading = uiState.isLoading,
+            modifier = Modifier.weight(1f),
         )
     }
 }

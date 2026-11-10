@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.veroanggra.furnitureshop.ui.furnitureshop.FurnitureShopRoute
+import com.veroanggra.furnitureshop.ui.navigation.FurnitureShopApp
 import com.veroanggra.furnitureshop.ui.theme.FurnitureShopTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FurnitureShopTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    FurnitureShopRoute()
+                    FurnitureShopApp()
                 }
             }
         }
