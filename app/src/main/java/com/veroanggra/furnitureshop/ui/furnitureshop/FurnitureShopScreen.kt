@@ -29,8 +29,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.veroanggra.furnitureshop.ui.furnitureshop.components.CategorySelector
 import com.veroanggra.furnitureshop.ui.furnitureshop.components.ProductRow
 import com.veroanggra.furnitureshop.ui.theme.TextDark
@@ -41,7 +41,7 @@ import com.veroanggra.reactify.gooey.GooeyRenderers
 @Composable
 fun FurnitureShopRoute(
     modifier: Modifier = Modifier,
-    viewModel: FurnitureShopViewModel = viewModel(),
+    viewModel: FurnitureShopViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
