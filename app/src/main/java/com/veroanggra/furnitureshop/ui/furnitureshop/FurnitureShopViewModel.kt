@@ -31,10 +31,6 @@ class FurnitureShopViewModel : ViewModel() {
         loadProducts(category)
     }
 
-    fun onNavItemSelected(index: Int) {
-        _uiState.update { it.copy(selectedNavIndex = index) }
-    }
-
     private fun loadProducts(category: String) {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true) }

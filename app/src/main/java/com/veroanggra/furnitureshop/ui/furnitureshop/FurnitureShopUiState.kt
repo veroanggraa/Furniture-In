@@ -7,5 +7,4 @@ data class FurnitureShopUiState(
     val categories: List<String> = emptyList(),
     val selectedCategory: String = "All",
     val products: List<Product> = emptyList(),
-    val selectedNavIndex: Int = 0,
 )
