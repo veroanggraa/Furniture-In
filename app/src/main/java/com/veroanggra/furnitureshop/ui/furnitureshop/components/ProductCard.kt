@@ -10,12 +10,12 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ShoppingCart
@@ -32,6 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.veroanggra.furnitureshop.data.model.Product
+import com.veroanggra.furnitureshop.ui.theme.TextDark
 import com.veroanggra.furnitureshop.ui.theme.TextMuted
 import java.util.Locale
 
@@ -61,46 +62,52 @@ fun ProductRow(
 
 @Composable
 private fun ProductCard(product: Product) {
-    Column(
-        Modifier
-            .width(190.dp)
-            .clip(RoundedCornerShape(22.dp))
-            .background(Color(product.colorHex)),
-    ) {
-        Box(
+    Box(Modifier.width(190.dp)) {
+        Column(
             Modifier
                 .fillMaxWidth()
-                .aspectRatio(1f),
-            contentAlignment = Alignment.Center,
+                .clip(RoundedCornerShape(22.dp))
+                .background(Color(product.colorHex)),
         ) {
-            Icon(
-                Icons.Filled.Weekend,
-                contentDescription = product.name,
-                tint = Color.White.copy(alpha = 0.9f),
-                modifier = Modifier.size(72.dp),
-            )
-        }
-        Column(Modifier.padding(14.dp)) {
-            Text(product.name, color = Color.White, fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-            Text(product.vendor, color = Color.White.copy(alpha = 0.8f), fontSize = 11.sp)
-            Spacer(Modifier.height(8.dp))
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+            Box(
+                Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(1f),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    Icons.Filled.Weekend,
+                    contentDescription = product.name,
+                    tint = Color.White.copy(alpha = 0.9f),
+                    modifier = Modifier.size(72.dp),
+                )
+            }
+            Column(Modifier.padding(14.dp)) {
+                Text(product.name, color = Color.White, fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                Text(product.vendor, color = Color.White.copy(alpha = 0.8f), fontSize = 11.sp)
+                Spacer(Modifier.height(8.dp))
                 Text(
                     text = String.format(Locale.US, "$%.2f", product.price),
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
                     fontSize = 15.sp,
                 )
-                Box(
-                    Modifier
-                        .size(34.dp)
-                        .clip(CircleShape)
-                        .background(Color.Black.copy(alpha = 0.25f)),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Icon(Icons.Filled.ShoppingCart, contentDescription = "Add to cart", tint = Color.White, modifier = Modifier.size(18.dp))
-                }
+                Spacer(Modifier.height(16.dp))
             }
+        }
+
+        Row(
+            Modifier
+                .align(Alignment.BottomEnd)
+                .offset(x = 10.dp, y = 10.dp)
+                .clip(RoundedCornerShape(50))
+                .background(TextDark)
+                .padding(horizontal = 16.dp, vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text("Cart", color = Color.White, fontWeight = FontWeight.Medium, fontSize = 14.sp)
+            Spacer(Modifier.width(6.dp))
+            Icon(Icons.Filled.ShoppingCart, contentDescription = "Add to cart", tint = Color.White, modifier = Modifier.size(16.dp))
         }
     }
 }
