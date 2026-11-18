@@ -1,9 +1,10 @@
 package com.veroanggra.furnitureshop.data.repository
 
 import com.veroanggra.furnitureshop.data.model.Product
+import javax.inject.Inject
 import kotlinx.coroutines.delay
 
-class FakeProductRepository : ProductRepository {
+class FakeProductRepository @Inject constructor() : ProductRepository {
 
     private val categories = listOf("All", "Chair", "Table", "Sofa")
 

@@ -2,17 +2,19 @@ package com.veroanggra.furnitureshop.ui.furnitureshop
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.veroanggra.furnitureshop.data.repository.FakeProductRepository
 import com.veroanggra.furnitureshop.data.repository.ProductRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class FurnitureShopViewModel : ViewModel() {
-
-    private val repository: ProductRepository = FakeProductRepository()
+@HiltViewModel
+class FurnitureShopViewModel @Inject constructor(
+    private val repository: ProductRepository,
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(FurnitureShopUiState())
     val uiState: StateFlow<FurnitureShopUiState> = _uiState.asStateFlow()
