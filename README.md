@@ -2,6 +2,8 @@
 
 A furniture e-commerce home screen built with **Jetpack Compose**, rebuilt pixel-for-pixel from a Figma source design — complete with a custom gooey "add to cart" transfer animation.
 
+UI design inspired by [Modern Furniture Shopping App — Interior Design Mobile UI](https://dribbble.com/shots/27181659-Modern-Furniture-Shopping-App-Interior-Design-Mobile-UI) on Dribbble.
+
 <p align="center">
   <img src="recordings/three-panels-cart-nav-tabs.gif" width="900" alt="Add to cart, bottom navigation, and category tabs demo" />
 </p>
@@ -50,7 +52,7 @@ app/src/main/java/com/veroanggra/furnitureshop/
 
 ## 🚀 Getting Started
 
-1. Clone the repo and open it in **Android Studio** (Narwhal or newer).
+1. Clone the repo and open it in **Android Studio** (Quail or newer).
 2. Let Gradle sync — the project targets `compileSdk 37` / `minSdk 24`.
 3. Run the `app` configuration on an emulator or device.
 
@@ -62,10 +64,10 @@ app/src/main/java/com/veroanggra/furnitureshop/
 
 Additional interaction recordings live in [`recordings/`](recordings):
 
-| File | What it shows |
+| What it shows | Preview |
 |---|---|
-| `category-tabbar.gif` | Switching between All / Chair / Table / Sofa |
-| `swipe-product-and-add-to-cart.gif` | Swiping product cards and adding one to the cart |
-| `bottom-navigation-bar.gif` | Home / Search / Wishlist / Profile tab switching |
-| `full-page-walkthrough.gif` | Full combined walkthrough: categories, two cart adds, and all nav tabs |
-| `three-panels-cart-nav-tabs.gif` | Three interactions side-by-side, synchronized in real time |
+| Switching between All / Chair / Table / Sofa | <img src="recordings/category-tabbar.gif" width="220" alt="category-tabbar.gif" /> |
+| Swiping product cards and adding one to the cart | <img src="recordings/swipe-product-and-add-to-cart.gif" width="220" alt="swipe-product-and-add-to-cart.gif" /> |
+| Home / Search / Wishlist / Profile tab switching | <img src="recordings/bottom-navigation-bar.gif" width="220" alt="bottom-navigation-bar.gif" /> |
+| Full combined walkthrough: categories, two cart adds, and all nav tabs | <img src="recordings/full-page-walkthrough.gif" width="220" alt="full-page-walkthrough.gif" /> |
+| Three interactions side-by-side, synchronized in real time | <img src="recordings/three-panels-cart-nav-tabs.gif" width="220" alt="three-panels-cart-nav-tabs.gif" /> |
