@@ -1,18 +1,14 @@
 package com.veroanggra.furnitureshop.ui.navigation
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.annotation.DrawableRes
 import androidx.navigation3.runtime.NavKey
+import com.veroanggra.furnitureshop.R
 
-sealed class TopLevelDestination(val icon: ImageVector, val label: String) : NavKey {
-    data object Home : TopLevelDestination(Icons.Filled.Home, "Home")
-    data object Search : TopLevelDestination(Icons.Filled.Search, "Search")
-    data object Wishlist : TopLevelDestination(Icons.Filled.FavoriteBorder, "Wishlist")
-    data object Profile : TopLevelDestination(Icons.Filled.Person, "Profile")
+sealed class TopLevelDestination(@DrawableRes val iconRes: Int, val label: String) : NavKey {
+    data object Home : TopLevelDestination(R.drawable.ic_nav_home, "Home")
+    data object Search : TopLevelDestination(R.drawable.ic_nav_search, "Search")
+    data object Wishlist : TopLevelDestination(R.drawable.ic_nav_heart, "Wishlist")
+    data object Profile : TopLevelDestination(R.drawable.ic_nav_profile, "Profile")
 }
 
 val bottomNavDestinations = listOf(
