@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import com.veroanggra.furnitureshop.ui.common.PlaceholderScreen
-import com.veroanggra.furnitureshop.ui.furnitureshop.FurnitureShopRoute
-import com.veroanggra.furnitureshop.ui.furnitureshop.components.BottomNavigationBar
+import com.veroanggra.furnitureshop.feature.furnitureshop.FurnitureShopRoute
+import com.veroanggra.furnitureshop.ui.organisms.BottomNavigationBar
 import com.veroanggra.furnitureshop.ui.theme.Background
 import com.veroanggra.reactify.gooey.GooeyRenderers
 

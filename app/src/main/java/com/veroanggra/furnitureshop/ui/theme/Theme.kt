@@ -17,6 +17,7 @@ private val FurnitureShopColorScheme = lightColorScheme(
 fun FurnitureShopTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = FurnitureShopColorScheme,
+        typography = FurnitureShopTypography,
         content = content,
     )
 }

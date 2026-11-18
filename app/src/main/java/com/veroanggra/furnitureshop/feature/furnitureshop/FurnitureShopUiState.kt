@@ -1,4 +1,4 @@
-package com.veroanggra.furnitureshop.ui.furnitureshop
+package com.veroanggra.furnitureshop.feature.furnitureshop
 
 import com.veroanggra.furnitureshop.data.model.Product
 
